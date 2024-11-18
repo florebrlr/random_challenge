@@ -38,6 +38,7 @@ body {
 	border-width: 5px;
 	border-style: solid;
 	min-width: 60vw;
+
 }
 
 #sims4logo img {
@@ -128,7 +129,7 @@ button a, #btn-generer-index {
 	color: white;
 }
 
-#btn-generer:hover, #btn-return:hover, #btn-generer-index:hover {
+#btn-generer:hover, #btn-return:hover, #btn-generer-index:hover, #register-btn:hover, #login-btn:hover {
 	background-color: var(--vert);
 	cursor: pointer;
 }
@@ -174,9 +175,17 @@ footer div{
 }
 
 /**********************************************************************************************************************************************/
-/* PAGE LOGIN */
+/* SECTION CONNEXION */
 /**********************************************************************************************************************************************/
+.connexion {
+	/* background-color: purple; */
+	display: flex;
+	justify-content: right;
+	gap: 1em;
+	position: fixed;
+	margin-left: 45%;
+}
 
-/**********************************************************************************************************************************************/
-/* PAGE REGISTER */
-/**********************************************************************************************************************************************/
+#register-btn, #login-btn {
+	padding: 0.2em 0.5em;
+}

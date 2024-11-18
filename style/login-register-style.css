@@ -129,17 +129,29 @@ a {
     padding: 0.5em;
 }
 /* password et confirmation */
-.instruction-pwd {
-    font-weight: bold;
+.infos {
     padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    /* background-color: purple; */
 }
-.validate {
-    color: green;
+.info-icon {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
 }
 .infos li {
-    color: red;
+    /* color: red; */
+    font-size: 0.9em;
 }
+
 
 #btn-visibilite-password:hover {
     cursor: pointer;
+}
+
+.bold {
+    font-weight: bold;
 }
