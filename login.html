@@ -7,11 +7,49 @@
 	<link rel="stylesheet" href="./style/login-register-style.css">
     <link rel="shortcut icon" href="./img/plumbob-green.png" type="image/x-icon">
 	<title>Random Challenge - identification</title>
-	<script src="./script/script-login.js" defer></script>
+    <script src="https://kit.fontawesome.com/f08d8d0119.js" crossorigin="anonymous"></script>
+    <script src="./script/script-login.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <div class="form">test</div>
+        <div class="wrapper">
+            <form action="" method="post">
+            <!-- login -->
+            <h1>S'identifier</h1>
+            <!-- Username -->
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <label for="name">Nom d'utilisateur :&nbsp;<span id="required">*</span></label>
+                <input type="text" placeholder="Nom d'utilisateur" id="username" required>
+            </div>
+            <!-- Password -->
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <label for="name">Mot de passe:&nbsp;<span id="required">*</span></label>
+                <input type="password" placeholder="Mot de passe" id="passeword" pattern="^^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                <button type="button" id="btn-visibilite-password">
+                   <!-- icon oeil ouvert -->
+                    <i class="fa-solid fa-eye" id="open-eye"></i>
+                    <!-- icon oeil fermé -->
+                    <!-- <i class="fa-solid fa-eye-slash" id="hidden-eye"></i> -->
+                </button>
+
+                
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Se rappeler de moi</label>
+                <!-- <a href="#">Mot de passe oublié ?</a> -->
+            </div>
+
+            <button id="login-btn-login" type="submit">Se connecter</button>
+
+            <div class="register-link">
+                <p>Pas encore de compte ? <a href="./register.html">Créer un compte</a></p>
+                
+            </div>
+        </form>
+        </div>
     </div>    
 </body>
 </html>

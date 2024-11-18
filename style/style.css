@@ -90,7 +90,9 @@ fieldset div{
 	text-align: left;
 }
 /* mettre du padding entre checkbox et nom du pack */
-
+input {
+	margin-right: 0.5em;
+}
 #nb-pack {
 	background-color: var(--fondtransparent);
 	color: white;
