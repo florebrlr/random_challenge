@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="infos" content="random challenge, sims 4, français">
-	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./style/style.css">
     <link rel="shortcut icon" href="./img/plumbob-green.png" type="image/x-icon">
 	<title>Random Challenge</title>
-	<script src="./script.js" defer></script>
+	<script src="./script/script.js" defer></script>
 </head>
 <body>
 	<div class="mon-gros-container">
@@ -16,12 +16,12 @@
                 <div>
                     <div class="user-icon">
                         <img src="" alt="icon utilisateur">
-                        <button id="login">Me connecter</button>
+                        <button id="login-btn">Me connecter</button>
                     </div>
                     <!-- <span>&nbsp;|&nbsp;</span> -->
                     <div class="register-icon">
                         <img src="" alt="icon s'enregistrer">
-                        <button id="register">M'enregistrer</button>
+                        <button id="register-btn">M'enregistrer</button>
                     </div>
                 </div>
             </section>
@@ -126,7 +126,7 @@
                         <legend>Encore plus de challenge !</legend>
                         <div id="move-objects"><input type="checkbox" name="Move Object" class="more-option"/>Pas de bb.moveobjects </div>
                         <div id="tiles"><input type="checkbox" name="Tiles" class="more-option"/>Nombre de carreaux imposé</div>
-                        <div id="Timer"><input type="checkbox" name="Timer" class="more-option"/>Minuteur</div>
+                        <div id="timer"><input type="checkbox" name="Timer" class="more-option"/>Minuteur</div>
                     </fieldset>
 				</div>
 			</section>
@@ -144,12 +144,12 @@
 			<!-- AFFICHAGE DU CHALLENGE-->
 			
 			<section id="affichage-challenge-section">
-				<button id="btn-return"><a href="./index.html">Retour sur les choix du challenge</a></button>
+				<button id="btn-return">Retour sur les choix du challenge</button>
 				<button id="btn-generer">Générer mon challenge</button>
 				<div id="generer-section">
 					<div>
 						<ul>
-							<li>Construire une maison style : <span class="simsfont" id="resultat-Style"></span></li>
+							<li>Construire une maison style : <span class="simsfont" id="resultat-style"></span></li>
 							<li>Avec le(s) pack(s)s :
 								<span class="simsfont" id="resultat-pack1"></span>
 								<span class="simsfont-white" id="resultat-pack2"></span>

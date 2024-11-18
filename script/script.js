@@ -1,7 +1,7 @@
 /**********************************************************************************************************************************************/
 /* CREATION DE MES DONNES */
 /**********************************************************************************************************************************************/
-
+//alert("kakou kakou script ok");
 /* création du style de construction = tableau */
 let allStyles = [
   "victorien",
@@ -22,6 +22,7 @@ let allStyles = [
   "karaoké",
   "magasin",
   "cinéma",
+  "gothique"
 ];
 /* création des couleurs = tableau */
 let allColors = ["rouge", "orange", "rose", "jaune", "vert", "bleu", "violet", "gris", "noir", "blanc", "marron clair", "marron foncé"];
@@ -31,7 +32,7 @@ let allLots = ["20x15", "20x20", "30x20", "30x30", "30x40", "40x40", "50x50", "6
 /* création des packs = tableau */
     //les packs sont cochés par défaut et ajouter au tableau packsPossedes
 let packsPossedes = [];
-let checkedpacks = document.querySelectorAll("input[type=checkbox]");
+let checkedpacks = document.querySelectorAll("#packs-possedes input[type='checkbox']:checked");
 //console.log(checkedpacks);
     // boucle for
 for (let box of checkedpacks) {
@@ -45,8 +46,13 @@ for (let box of checkedpacks) {
 /**********************************************************************************************************************************************/
 /* AFFICHAGE DU RANDOM CHALLENGE */
 /**********************************************************************************************************************************************/
+/* bouton retour */
+let btnReturn = document.getElementById("btn-return");
+btnReturn.addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
 
-/* Création du boutton generer */
+/* Création du bouton generer */
 let buttonGenerer = document.querySelector("#btn-generer");
 let generersection = document.querySelector("#generer-section");
 let packspossedessection = document.querySelector("#packspossedes-section");
@@ -79,9 +85,7 @@ buttonGenerer.addEventListener("click", () => {
     //je récupère touts les ID pour créer la div resultalt
     let resultatStyle = document.getElementById("resultat-style");
     let resultatLot = document.getElementById("resultat-lot");
-    let resultatPack1 = document.getElementById("resultat-pack1");
-    let resultatPack2 = document.getElementById("resultat-pack2");
-    let resultatPack3 = document.getElementById("resultat-pack3");
+
     let resultatColor = document.getElementById("resultat-color");
     let resultatColor1 = document.getElementById("resultat-color1");
     let resultatPiece = document.getElementById("resultat-piece");
@@ -93,7 +97,7 @@ buttonGenerer.addEventListener("click", () => {
     //console.log(select);
 
     /* récupération check si options supplémentaires */
-    let moreOption = document.getElementById("input[type=checkbox]");
+    let moreOption = document.querySelectorAll("input[type=checkbox].more-option");
     /* Création du style de construction*/
     let indexStyle = Math.floor(Math.random() * allStyles.length);
     let randomStyle = allStyles[indexStyle];
@@ -136,64 +140,83 @@ buttonGenerer.addEventListener("click", () => {
 });
 /* affichage des résultats randompack*/
 
+let resultatPack1 = document.getElementById("resultat-pack1");
+let resultatPack2 = document.getElementById("resultat-pack2");
+let resultatPack3 = document.getElementById("resultat-pack3");
 
     //fonction pour afficher le(s) résultat(s) randompack
-function affichagedupack(option) {
-    //si on sélectionne qu'1 pack :
-    // if (option == "1") {
-    //     resultatPack1.textContent = `${packsPossedes[Math.floor(Math.random() * (packsPossedes.length))]}`;
-    // //si on sélectionne 2 packs :
-    // } else if (option == "2") {
-    //     resultatPack1.textContent = `${packsPossedes[Math.floor(Math.random() * (packsPossedes.length))]}`;
-    //     // resultatPack2.textContent = ` ${packsPossedes[Math.floor(Math.random() * (packsPossedes.length -1))]}`;
-    //     resultatPack2.innerHTML = `, <span class="simsfont"> ${packsPossedes[Math.floor(Math.random() * (packsPossedes.length))]}</span>`;
-    //     //si on sélectionne 3 packs :
-    // } else {
-    //     resultatPack1.textContent = `${packsPossedes[Math.floor(Math.random() * (packsPossedes.length))]}`;
-    //     resultatPack2.innerHTML = `, <span class="simsfont"> ${packsPossedes[Math.floor(Math.random() * (packsPossedes.length))]}</span>`;
-    //     resultatPack3.innerHTML = `, <span class="simsfont"> ${packsPossedes[Math.floor(Math.random() * (packsPossedes.length))]}</span>`;
-    // }
+    function affichagedupack(option) {
 
-    //création resultaPack2
-    let spanOption2 = document.createElement("span");
-    spanOption2.className = "simsfont";
-
-    let randomise = packsPossedes[Math.floor(Math.random() * packsPossedes.length)];
-
-    switch (option) {
-        case "3":
-            //ajout resultatPack1
-            resultatPack1.textContent = `${randomise}`;
+        // Fonction pour obtenir un pack aléatoire différent à chaque fois
+        function getRandomPack() {
+            return packsPossedes[Math.floor(Math.random() * packsPossedes.length)];
+        }
     
-            //ajout resultatPack2
-            spanOption2.textContent = ` ${randomise}`;
-            resultatPack2.textContent = ", "; // Texte fixe
-            resultatPack2.appendChild(spanOption2);
+        // Variables pour chaque pack avec des valeurs aléatoires différentes
+        let randomise1 = getRandomPack();
+        let randomise2 = getRandomPack();
+        let randomise3 = getRandomPack();
     
-            // Création et ajout resultatPack3
-            let spanOption3 = document.createElement("span");
-            spanOption3.className = "simsfont";
-            spanOption3.textContent = ` ${randomise}`;
-            resultatPack3.textContent = ", "; // Texte fixe
-            resultatPack3.appendChild(spanOption3);
-            break;
+        // Création d'un span pour Pack2
+        let spanOption2 = document.createElement("span");
+        spanOption2.className = "simsfont";
     
-        case "2":
-            //ajout resultatPack1
-            resultatPack1.textContent = `${randomise}`;
-            // Création et ajout resultatPack2
-            spanOption2.textContent = ` ${randomise}`;
-            resultatPack2.textContent = ", "; // Texte fixe
-            resultatPack2.appendChild(spanOption2);
-            break;
+        // Création d'un span pour Pack3
+        let spanOption3 = document.createElement("span");
+        spanOption3.className = "simsfont";
     
-        default:
-            resultatPack1.textContent = `${randomise}`;
-            break;
-    }
-}
+        // Gestion des cas
+        switch (option) {
+            case "1":
+                // Ajout de resultatPack1
+                resultatPack1.textContent = ` ${randomise1}`;
+                break;
+    
+            case "2":
+                // Ajout de resultatPack1
+                resultatPack1.textContent = ` ${randomise1}`;
+    
+                // Ajout de resultatPack2
+                spanOption2.textContent = ` ${randomise2}`;
+                resultatPack2.textContent = ", "; // Texte fixe
+                resultatPack2.appendChild(spanOption2);
+                break;
+    
+            case "3":
+                // Ajout de resultatPack1
+                resultatPack1.textContent = ` ${randomise1}`;
+    
+                // Ajout de resultatPack2
+                spanOption2.textContent = ` ${randomise2}`;
+                resultatPack2.textContent = ", "; 
+                resultatPack2.appendChild(spanOption2);
+    
+                // Ajout de resultatPack3
+                spanOption3.textContent = ` ${randomise3}`;
+                resultatPack3.textContent = ", "; 
+                resultatPack3.appendChild(spanOption3);
+                break;
+    
+            default:
+                // Valeur par défaut si aucun pack sélectionné
+                resultatPack1.textContent = "Aucun pack sélectionné";
+                break;
+        }
+}    
+/**********************************************************************************************************************************************/
+/* CREATION DES BTNS CONNEXION */
+/**********************************************************************************************************************************************/
+/* bouton login */
+let loginBtn = document.getElementById("login-btn");
+loginBtn.addEventListener("click", () => {
+  window.location.href = "./login.html";
+});
 
-
+/* bouton register */
+let registerBtn = document.getElementById("register-btn");
+registerBtn.addEventListener("click", () => {
+  window.location.href = "./register.html";
+});
 /*
     - créer un utilisateur te connecter et ensuite lorsque je me connecte sur une page il me rappel le dernier challenge que j'ai généré.  
     - créer les éléments à cocher de manière automatique à partir d'un tableau ou mieux d'un fichier e configuration
